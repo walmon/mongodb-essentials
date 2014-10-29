@@ -22,6 +22,6 @@ angular.module('outcodingApp')
     };
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('things');
     });
   });

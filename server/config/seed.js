@@ -4,9 +4,16 @@
  */
 
 'use strict';
-
+var Building = require('../api/building/building.model');
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+
+/*Building.find({}).remove(function () {
+    Building.create({
+        name:'Teatro Nacional',
+        info:'Teatro Nacional de Costa Rica'
+    });
+});*/
 
 Thing.find({}).remove(function() {
   Thing.create({

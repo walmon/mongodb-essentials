@@ -1,0 +1,37 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+    <div class="container">
+        <h1>Buildings</h1>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Buildings:</h1>
+            <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="building in awesomeBuildings">
+                <li>
+                    <a href="#" tooltip="{{building.info}}">{{building.name}}<button type="button" class="close" ng-click="deleteBuilding(building)">&times;</button>
+            ({{building.pos.lat}},{{building.pos.lon}})<!--{{building.floors}}--></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <form class="thing-form">
+        <label>Syncs in realtime across clients</label>
+        <p class="input-group">
+            <input type="text" class="form-control" placeholder="Name" ng-model="newBuilding.name">
+            <input type="number" class="form-control" placeholder="Latitude" ng-model="newBuilding.pos.lat">
+            <input type="number" class="form-control" placeholder="Longitude" ng-model="newBuilding.pos.lon">
+            <textarea ng-model="newBuilding.floors" ng-list="&#10;" ng-trim="false"></textarea>
+            <h3>Result:</h3>
+        <p>Name: {{newBuilding.name}}</p>
+        <p>Geo Position: {{newBuilding.pos.lat}},{{newBuilding.pos.lon}}</p>
+        <p><pre>{{newBuilding.floors | json}}</pre></p>
+        <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary" ng-click="addBuilding()">Add New</button>
+        </span>
+        </p>
+    </form>
+</div>
